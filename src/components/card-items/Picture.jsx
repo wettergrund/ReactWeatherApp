@@ -1,30 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-// import pic from "https://source.unsplash.com/random/100/?Stockholm"
 
-// const Photo = styled.section`
+var myUrl
 
-// background-size: cover;
-// background-position: center;
+const Container = styled.div`
+	background-size: cover;
+	background-position: center;
 
-// /* width: var(--std-width); */
-// width: 100%;
-// height: 150px;
-// /* background: url(${pic}); */
+	width: 100%;
+	height: 150px;
+`;
 
-
-// /* $(props) => */
-
-// `;
 
 const Picture = (props) => {
-  return (
-    <>
-      <img src={"https://source.unsplash.com/random/100/?" + props.City + '?city'} alt="" />
-      {/* Hej */}
-      {/* <Photo></Photo> */}
-    </>
 
+  const [url, setUrl] = useState('');
+
+  useEffect(()=>{   
+
+    
+    const newUrl = `https://source.unsplash.com/random/100/?${ props.City }?city`
+    myUrl=newUrl;
+
+    setUrl(newUrl)
+
+
+  
+  },[props.City]);
+
+
+
+
+  return (
+    <Container style={{backgroundImage: `url(${url})`}} />
+ 
   )
 }
 

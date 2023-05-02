@@ -10,9 +10,28 @@ const UserContext = React.createContext();
 
 const Container = styled.div`
 
-  padding: 2rem;
-  color: whitesmoke;
+  display: relative;
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(5px);
+	margin: 0rem auto;
+	width: var(--std-width);
+	min-width: 300px;
+	max-width: 400px;
+	/* padding-top: rem; */
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 1em;
+	overflow: hidden;
+	z-index: 1;
 
+
+`;
+
+const TextArea = styled.div`
+
+
+    padding: 2rem;
+    color: whitesmoke;
+  
 `;
 
 
@@ -48,11 +67,16 @@ const Card = (props) => {
   return (
     <Container>
     
-        {/* <Picture City={cityName}/> */}
+        <Picture City={cityName}/>
         {/* <SearchArea/> */}
+
+        <TextArea>
+
         <InputField onPress={handleSearch} onSearch={handleInput}/>  
         {/* <h1>{cityName}</h1> */}
         <InfoArea City={cityName} />
+
+        </TextArea>
 
     
     </Container>
