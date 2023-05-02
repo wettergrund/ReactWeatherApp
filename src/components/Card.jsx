@@ -3,8 +3,17 @@ import Picture from './card-items/Picture'
 import SearchArea from './card-items/SearchArea'
 import InfoArea from './card-items/InfoArea'
 import InputField from './card-items/searcharea-items/InputField';
+import styled from 'styled-components'
+
 
 const UserContext = React.createContext();
+
+const Container = styled.div`
+
+  padding: 2rem;
+  color: whitesmoke;
+
+`;
 
 
 let selectedUnit = "metric";
@@ -37,16 +46,16 @@ const Card = (props) => {
   
 
   return (
-    <>
+    <Container>
     
-        <Picture City={cityName}/>
+        {/* <Picture City={cityName}/> */}
         {/* <SearchArea/> */}
         <InputField onPress={handleSearch} onSearch={handleInput}/>  
         {/* <h1>{cityName}</h1> */}
         <InfoArea City={cityName} />
 
     
-    </>
+    </Container>
     
   )
 }
